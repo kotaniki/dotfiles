@@ -6,7 +6,10 @@
 # source $HOME/.zsh/powerlevel9k.zsh
 # source $ZSH/oh-my-zsh.sh
 
-for f in powerlevel9k zplug language peco
+export HISTFILE=${HOME}/.zsh_history
+export SAVEHIST=100000
+
+for f in powerlevel9k zplug language peco alias
 do
   source $HOME/.zsh/${f}.zsh
 done

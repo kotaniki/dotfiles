@@ -7,6 +7,20 @@ zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 # highlight
 zplug "zsh-users/zsh-syntax-highlighting"
 
+# git
+zplug "plugins/git",   from:oh-my-zsh
+zplug "peterhurford/git-aliases.zsh"
+
+# completion
+zplug "zsh-users/zsh-completions"
+
+# enhancd
+zplug "b4b4r07/enhancd", use:init.sh
+
+# suggestion
+# 現在のテーマだと見えない
+# zplug "zsh-users/zsh-autosuggestions"
+
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
