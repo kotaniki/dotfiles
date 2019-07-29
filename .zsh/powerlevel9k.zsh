@@ -2,14 +2,19 @@
 ### POWERLEVEL9K SETTINGS ############################################################################
 
 prompt_zsh_showStatus () {
+    exist=`osascript -e 'exists application "Spotify"'`;
+
+    if [ $exist = false ]; then
+        return
+    fi
+
     local color='%F{white}'
     state=`osascript -e 'tell application "Spotify" to player state as string'`;
     if [ $state = "playing" ]; then
         artist=`osascript -e 'tell application "Spotify" to artist of current track as string'`;
         track=`osascript -e 'tell application "Spotify" to name of current track as string'`;
 
-        echo -n "  %{$color%}\uf1bc $artist - $track"; 
-
+        echo -n "  %{$color%}\uf1bc $artist - $track";
     fi
 }
 
@@ -35,36 +40,36 @@ zsh_internet_signal(){
   local symbol="\uf197"
 
   # Excellent Signal (5 bars)
-  if [[ ! -z "${signal// }" ]] && [[ $SNR -gt .40 ]] ; 
+  if [[ ! -z "${signal// }" ]] && [[ $SNR -gt .40 ]] ;
     then color='%F{blue}' ; symbol="\uf1eb" ;
   fi
 
   # Good Signal (3-4 bars)
-  if [[ ! -z "${signal// }" ]] && [[ ! $SNR -gt .40 ]] && [[ $SNR -gt .25 ]] ; 
+  if [[ ! -z "${signal// }" ]] && [[ ! $SNR -gt .40 ]] && [[ $SNR -gt .25 ]] ;
     then color='%F{green}' ; symbol="\uf1eb" ;
   fi
 
   # Low Signal (2 bars)
-  if [[ ! -z "${signal// }" ]] && [[ ! $SNR -gt .25 ]] && [[ $SNR -gt .15 ]] ; 
+  if [[ ! -z "${signal// }" ]] && [[ ! $SNR -gt .25 ]] && [[ $SNR -gt .15 ]] ;
     then color='%F{yellow}' ; symbol="\uf1eb" ;
   fi
 
   # Very Low Signal (1 bar)
-  if [[ ! -z "${signal// }" ]] && [[ ! $SNR -gt .15 ]] && [[ $SNR -gt .10 ]] ; 
+  if [[ ! -z "${signal// }" ]] && [[ ! $SNR -gt .15 ]] && [[ $SNR -gt .10 ]] ;
     then color='%F{red}' ; symbol="\uf1eb" ;
   fi
 
   # No Signal - No Internet
-  if [[ ! -z "${signal// }" ]] && [[ ! $SNR -gt .10 ]] ; 
+  if [[ ! -z "${signal// }" ]] && [[ ! $SNR -gt .10 ]] ;
     then color='%F{red}' ; symbol="\uf011";
   fi
 
-  if [[ -z "${signal// }" ]] && [[ "$net" -ne 200 ]] ; 
+  if [[ -z "${signal// }" ]] && [[ "$net" -ne 200 ]] ;
     then color='%F{red}' ; symbol="\uf011" ;
   fi
 
   # Ethernet Connection (no wifi, hardline)
-  if [[ -z "${signal// }" ]] && [[ "$net" -eq 200 ]] ; 
+  if [[ -z "${signal// }" ]] && [[ "$net" -eq 200 ]] ;
     then color='%F{blue}' ; symbol="\uf197" ;
   fi
 
@@ -103,4 +108,5 @@ POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='yellow'
 
 # Side
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator dir nvm vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time zsh_showStatus time)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time zsh_showStatus time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time time)
