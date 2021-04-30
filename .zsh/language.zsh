@@ -1,7 +1,7 @@
 # ruby
 #export PATH="$HOME/.rbenv/:$PATH"
 #eval "$(rbenv init -)"
-#export PATH="$PATH:/Users/yuki.kotani/Library/Android/sdk/platform-tools"
+export PATH="$PATH:/Users/kotani/Library/Android/sdk/platform-tools"
 #export PATH="$HOME/.rbenv/bin:$PATH"
 
 # python

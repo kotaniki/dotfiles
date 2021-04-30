@@ -74,3 +74,6 @@ if has('syntax')
     augroup END
     call ZenkakuSpace()
 endif
+
+"backspace有効化
+set backspace=indent,eol,start

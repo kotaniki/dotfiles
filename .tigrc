@@ -1,3 +1,6 @@
 set diff-highlight = true
 set refresh-mode = auto
 
+# rebase 
+bind main    R !git rebase -i %(commit)
+bind diff    R !git rebase -i %(commit)
