@@ -7,3 +7,6 @@ alias ll='ls -lG'      #long list
 
 # hub 
 alias git='hub'
+
+# git
+alias g='git'

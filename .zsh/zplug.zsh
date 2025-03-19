@@ -2,14 +2,14 @@
 source ~/.zplug/init.zsh
 
 # theme
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+zplug romkatv/powerlevel10k, as:theme, depth:1
 
 # highlight
 zplug "zsh-users/zsh-syntax-highlighting"
 
 # git
-zplug "plugins/git",   from:oh-my-zsh
-zplug "peterhurford/git-aliases.zsh"
+# zplug "plugins/git",   from:oh-my-zsh
+# zplug "peterhurford/git-aliases.zsh"
 
 # completion
 zplug "zsh-users/zsh-completions"

@@ -12,3 +12,6 @@ eval "$(pyenv init -)"
 
 # golang
 export GOPATH=$HOME/go
+
+# git
+export PATH="$PATH:/opt/homebrew/share/git-core/contrib/diff-highlight"
